@@ -48,7 +48,7 @@
           '<span class="problem-id">' + window.Render.escapeHtml(entry.sub.id) + ' · ' + window.Render.escapeHtml(p.id) + '</span>' +
           '<span class="solved-badge" ' + (alreadySolved ? '' : 'hidden') + '>✓ solved</span>' +
         '</div>' +
-        '<p class="problem-prompt">' + p.prompt + '</p>' +
+        '<p class="problem-prompt">' + window.Render.escapeHtml(p.prompt) + '</p>' +
         (p.formatHint ? '<p class="problem-format-hint">' + window.Render.escapeHtml(p.formatHint) + '</p>' : '') +
         '<div class="answer-row">' +
           '<label for="input-' + globalId + '">Your answer for ' + window.Render.escapeHtml(globalId) + '</label>' +
@@ -81,7 +81,7 @@
         btn.addEventListener('click', function () {
           var box = document.createElement('div');
           box.className = 'hint-box';
-          box.innerHTML = '<span class="hint-level">Hint ' + (hintLevel + 1) + '</span>' + p.hints[hintLevel];
+          box.innerHTML = '<span class="hint-level">Hint ' + (hintLevel + 1) + '</span>' + window.Render.escapeHtml(p.hints[hintLevel]);
           hintsContainer.appendChild(box);
           window.Render.renderMath(box);
           hintLevel++;
@@ -95,7 +95,7 @@
         var isHidden = solutionBox.hasAttribute('hidden');
         if (isHidden) {
           if (!solutionBox.dataset.rendered) {
-            var stepsHtml = p.solution.map(function (s) { return '<li>' + s + '</li>'; }).join('');
+            var stepsHtml = p.solution.map(function (s) { return '<li>' + window.Render.escapeHtml(s) + '</li>'; }).join('');
             solutionBox.innerHTML = '<ol>' + stepsHtml + '</ol>';
             window.Render.renderMath(solutionBox);
             solutionBox.dataset.rendered = '1';

@@ -48,6 +48,16 @@ window.TOPICS.push({
         inputType: 'numeric', answer: '0', formatHint: 'Enter an exact number (units: m/s).',
         hints: [`Average rate of change over \\([a,b]\\) is \\(\\dfrac{s(b)-s(a)}{b-a}\\).`, `Compute \\(s(1)\\) and \\(s(3)\\).`, `\\(s(1)=15\\), \\(s(3)=15\\) — what's their difference?`],
         solution: [`\\(s(1)=-5(1)+20(1)=15\\). \\(s(3)=-5(9)+20(3)=-45+60=15\\).`, `Average rate of change \\(=\\dfrac{s(3)-s(1)}{3-1}=\\dfrac{15-15}{2}=0\\) m/s.`, `(The ball returns to the same height at \\(t=3\\) as at \\(t=1\\), so its net average velocity over that interval is zero.)`]
+      },
+      { id: 'p4', prompt: `Find the slope of the secant line through \\(x=1\\) and \\(x=1+h\\) on \\(f(x)=\\dfrac{1}{x}\\), simplified as a function of \\(h\\) (with the common factor of \\(h\\) cancelled). Enter as an expression in h.`,
+        inputType: 'expr', variable: 'h', answer: '-1/(1+h)', formatHint: 'Enter an expression in h, e.g. -1/(1+h).',
+        hints: [`Compute \\(f(1+h)-f(1) = \\dfrac{1}{1+h}-1\\). Combine into a single fraction over \\(1+h\\) first.`, `\\(\\dfrac{1}{1+h}-1 = \\dfrac{1-(1+h)}{1+h} = \\dfrac{-h}{1+h}\\).`, `Now divide that whole thing by the outer \\(h\\) — the \\(h\\)'s should cancel.`],
+        solution: [`\\(f(1+h)-f(1)=\\dfrac{1}{1+h}-1=\\dfrac{1-(1+h)}{1+h}=\\dfrac{-h}{1+h}\\).`, `Dividing by \\(h\\): the secant slope is \\(\\dfrac{-h}{h(1+h)}=\\dfrac{-1}{1+h}\\).`]
+      },
+      { id: 'p5', prompt: `Using the previous result, find the slope of the tangent line to \\(f(x)=\\dfrac1x\\) at \\(x=1\\).`,
+        inputType: 'numeric', answer: '-1', formatHint: 'Enter an exact number.',
+        hints: [`The tangent slope is the limit of the secant slope as \\(h\\to0\\).`, `You found the secant slope is \\(\\dfrac{-1}{1+h}\\).`, `Let \\(h\\to0\\) in \\(\\dfrac{-1}{1+h}\\).`],
+        solution: [`\\(m_{tan}=\\lim_{h\\to0}\\dfrac{-1}{1+h}=-1\\).`]
       }
     ]
   },
@@ -102,6 +112,34 @@ window.TOPICS.push({
         inputType: 'expr', variable: 'x', answer: '1/(2*sqrt(x))', formatHint: 'Enter f\'(x) as an expression in x, e.g. 1/(2*sqrt(x)).',
         hints: [`Set up \\(\\dfrac{\\sqrt{x+h}-\\sqrt{x}}{h}\\) — direct substitution gives \\(0/0\\), so multiply numerator and denominator by the conjugate \\(\\sqrt{x+h}+\\sqrt{x}\\).`, `The numerator becomes \\((x+h)-x=h\\), which cancels with the outer \\(h\\).`, `You're left with \\(\\dfrac{1}{\\sqrt{x+h}+\\sqrt{x}}\\) — now let \\(h\\to0\\).`],
         solution: [`Multiply by the conjugate: \\(\\dfrac{\\sqrt{x+h}-\\sqrt{x}}{h}\\cdot\\dfrac{\\sqrt{x+h}+\\sqrt{x}}{\\sqrt{x+h}+\\sqrt{x}} = \\dfrac{(x+h)-x}{h(\\sqrt{x+h}+\\sqrt{x})}=\\dfrac{h}{h(\\sqrt{x+h}+\\sqrt{x})}\\).`, `Cancel \\(h\\): \\(\\dfrac{1}{\\sqrt{x+h}+\\sqrt{x}}\\).`, `Let \\(h\\to0\\): \\(f'(x)=\\dfrac{1}{2\\sqrt{x}}\\).`]
+      },
+      { id: 'p6', prompt: `For what values of \\(a\\) and \\(b\\) will \\(f(x)=\\begin{cases}ax & x<2\\\\ ax^2-bx+3 & x\\geq2\\end{cases}\\) be differentiable for every \\(x\\)? (This requires *both* continuity and matching derivatives at \\(x=2\\) — a classic two-equation, two-unknown midterm question.) Enter \\(a\\) then \\(b\\), separated by a comma.`,
+        inputType: 'set', answer: ['3/4', '9/4'], formatHint: 'Enter as a, b — e.g. 3/4, 9/4.',
+        hints: [
+          `Step 1 (continuity at \\(x=2\\)): the two pieces must agree at \\(x=2\\): \\(a(2) = a(2)^2-b(2)+3\\), i.e. \\(2a = 4a-2b+3\\).`,
+          `Step 2 (differentiability at \\(x=2\\)): the derivative of \\(ax\\) is the constant \\(a\\); the derivative of \\(ax^2-bx+3\\) is \\(2ax-b\\), which at \\(x=2\\) is \\(4a-b\\). Set these equal: \\(a = 4a-b\\).`,
+          `From step 2, \\(b=3a\\). Substitute that into the equation from step 1 and solve for \\(a\\); then back-substitute for \\(b\\).`
+        ],
+        solution: [
+          `Continuity at \\(x=2\\): \\(2a = 4a-2b+3 \\implies 2b-2a=3 \\implies b-a=\\dfrac32\\). \\((\\ast)\\)`,
+          `Differentiability at \\(x=2\\): the left piece's derivative is the constant \\(a\\); the right piece's derivative is \\(2ax-b\\), which equals \\(4a-b\\) at \\(x=2\\). Setting \\(a=4a-b\\) gives \\(b=3a\\). \\((\\ast\\ast)\\)`,
+          `Substitute \\((\\ast\\ast)\\) into \\((\\ast)\\): \\(3a-a=\\dfrac32 \\implies 2a=\\dfrac32 \\implies a=\\dfrac34\\).`,
+          `Then \\(b=3a=3\\cdot\\dfrac34=\\dfrac94\\).`,
+          `Check: at \\(x=2\\), both pieces give \\(\\frac32\\) and both derivatives give \\(\\frac34\\) — consistent.`
+        ]
+      },
+      { id: 'p7', prompt: `For what values of \\(a\\) and \\(b\\) will \\(g(x)=\\begin{cases}ax+b & x\\leq-1\\\\ ax^3+x+2b & x>-1\\end{cases}\\) be differentiable for every \\(x\\)? Enter \\(a\\) then \\(b\\), separated by a comma.`,
+        inputType: 'set', answer: ['-1/2', '1'], formatHint: 'Enter as a, b — e.g. -1/2, 1.',
+        hints: [
+          `Continuity at \\(x=-1\\): \\(a(-1)+b = a(-1)^3+(-1)+2b\\), i.e. \\(-a+b = -a-1+2b\\).`,
+          `Notice the \\(-a\\) terms cancel immediately in the continuity equation — solve directly for \\(b\\).`,
+          `Differentiability at \\(x=-1\\): the left piece's derivative is the constant \\(a\\); the right piece's derivative is \\(3ax^2+1\\), which at \\(x=-1\\) is \\(3a+1\\). Set \\(a=3a+1\\) and solve for \\(a\\).`
+        ],
+        solution: [
+          `Continuity at \\(x=-1\\): \\(-a+b = -a-1+2b \\implies b = -1+2b \\implies -b=-1 \\implies b=1\\).`,
+          `Differentiability at \\(x=-1\\): the left piece's derivative is the constant \\(a\\); the right piece's derivative is \\(3ax^2+1\\), which at \\(x=-1\\) is \\(3a(1)+1=3a+1\\). Setting \\(a=3a+1\\): \\(-2a=1 \\implies a=-\\dfrac12\\).`,
+          `So \\(a=-\\dfrac12,\\ b=1\\). Check: at \\(x=-1\\), left value \\(=-a+b=\\frac12+1=\\frac32\\); right value \\(=-a-1+2b=\\frac12-1+2=\\frac32\\) — matches.`
+        ]
       }
     ]
   },
@@ -142,15 +180,20 @@ window.TOPICS.push({
         hints: [`Rewrite \\(\\dfrac{1}{x^3}\\) as \\(x^{-3}\\).`, `Apply the power rule: \\(\\frac{d}{dx}[x^{-3}]=-3x^{-4}\\).`, `Rewrite the negative exponent back as a fraction if you like.`],
         solution: [`\\(\\dfrac{1}{x^3}=x^{-3}\\), so \\(f'(x)=-3x^{-4}=-\\dfrac{3}{x^4}\\).`]
       },
-      { id: 'p3', prompt: `For \\(f(x)=x^3-3x\\), find all x where the tangent line is horizontal (slope 0). Enter the x-values separated by a comma.`,
-        inputType: 'set', answer: ['1', '-1'], formatHint: 'Enter values separated by a comma.',
-        hints: [`First find \\(f'(x)\\).`, `\\(f'(x)=3x^2-3\\). Set this equal to zero.`, `\\(3x^2-3=0 \\iff x^2=1\\).`],
-        solution: [`\\(f'(x)=3x^2-3\\). Setting \\(f'(x)=0\\): \\(3x^2-3=0 \\iff x^2=1 \\iff x=\\pm1\\).`]
+      { id: 'p3', prompt: `For \\(f(x)=x^3-6x^2+9x\\), find all x where the tangent line is horizontal (slope 0). Enter the x-values separated by a comma.`,
+        inputType: 'set', answer: ['1', '3'], formatHint: 'Enter values separated by a comma.',
+        hints: [`First find \\(f'(x)\\).`, `\\(f'(x)=3x^2-12x+9\\). Set this equal to zero and factor out the common factor of 3 first.`, `\\(3x^2-12x+9=3(x^2-4x+3)=3(x-1)(x-3)\\).`],
+        solution: [`\\(f'(x)=3x^2-12x+9\\). Setting \\(f'(x)=0\\): \\(3x^2-12x+9=0 \\iff x^2-4x+3=0\\).`, `Factor: \\(x^2-4x+3=(x-1)(x-3)\\), so \\(x=1\\) or \\(x=3\\).`]
       },
       { id: 'p4', prompt: `Differentiate \\(f(x)=2\\sqrt{x}+\\dfrac{3}{x^2}\\) (rewrite both terms as powers of x first).`,
         inputType: 'expr', variable: 'x', answer: '1/sqrt(x)-6/x^3', formatHint: 'Enter f\'(x) as an expression in x.',
         hints: [`Rewrite: \\(2\\sqrt{x}=2x^{1/2}\\) and \\(\\dfrac{3}{x^2}=3x^{-2}\\).`, `Differentiate each: \\(\\frac{d}{dx}[2x^{1/2}]=x^{-1/2}\\), \\(\\frac{d}{dx}[3x^{-2}]=-6x^{-3}\\).`, `Rewrite back using radicals/fractions.`],
         solution: [`\\(2x^{1/2}\\) differentiates to \\(2\\cdot\\frac12x^{-1/2}=x^{-1/2}=\\dfrac{1}{\\sqrt x}\\).`, `\\(3x^{-2}\\) differentiates to \\(-6x^{-3}=-\\dfrac{6}{x^3}\\).`, `\\(f'(x)=\\dfrac{1}{\\sqrt x}-\\dfrac{6}{x^3}\\).`]
+      },
+      { id: 'p5', prompt: `Differentiate \\(f(x)=\\dfrac{x^2+1}{\\sqrt{x}}\\) by first splitting the fraction into two separate powers of \\(x\\) (don't use the quotient rule here — that's a different, slower route).`,
+        inputType: 'expr', variable: 'x', answer: '(3/2)*sqrt(x)-1/(2*sqrt(x^3))', formatHint: 'Enter f\'(x) as an expression in x.',
+        hints: [`Split the single fraction: \\(\\dfrac{x^2+1}{\\sqrt x}=\\dfrac{x^2}{x^{1/2}}+\\dfrac{1}{x^{1/2}}=x^{3/2}+x^{-1/2}\\).`, `Differentiate each power separately: \\(\\frac{d}{dx}[x^{3/2}]=\\frac32x^{1/2}\\), \\(\\frac{d}{dx}[x^{-1/2}]=-\\frac12x^{-3/2}\\).`, `Rewrite the negative/fractional powers back as radicals if you like.`],
+        solution: [`Split first: \\(\\dfrac{x^2+1}{\\sqrt x}=\\dfrac{x^2}{x^{1/2}}+\\dfrac{1}{x^{1/2}}=x^{3/2}+x^{-1/2}\\) — now it's just a sum of powers.`, `Power rule on each term: \\(\\frac{d}{dx}[x^{3/2}]=\\frac32x^{1/2}=\\frac32\\sqrt x\\), and \\(\\frac{d}{dx}[x^{-1/2}]=-\\frac12x^{-3/2}=-\\dfrac{1}{2\\sqrt{x^3}}\\).`, `\\(f'(x)=\\dfrac32\\sqrt x-\\dfrac{1}{2\\sqrt{x^3}}\\).`]
       }
     ]
   },
@@ -193,6 +236,11 @@ window.TOPICS.push({
         inputType: 'expr', variable: 'x', answer: '(3*x^2-6*x)/(x-1)^2', formatHint: 'Enter y\' as an expression in x.',
         hints: [`Let \\(f=3x^2\\), \\(g=x-1\\). Find \\(f'\\) and \\(g'\\).`, `\\(f'=6x\\), \\(g'=1\\). Apply the quotient rule formula.`, `\\(y'=\\dfrac{6x(x-1)-3x^2(1)}{(x-1)^2}\\) — expand the numerator.`],
         solution: [`\\(f'=6x,\\ g'=1\\). Numerator: \\(6x(x-1)-3x^2 = 6x^2-6x-3x^2=3x^2-6x\\).`, `\\(y'=\\dfrac{3x^2-6x}{(x-1)^2}\\).`]
+      },
+      { id: 'p4', prompt: `Differentiate \\(y=\\dfrac{x^2\\sin x}{x+1}\\). (The numerator is itself a product, so you'll need the product rule *inside* the quotient rule.)`,
+        inputType: 'expr', variable: 'x', answer: '((2*x*sin(x)+x^2*cos(x))*(x+1)-x^2*sin(x))/(x+1)^2', formatHint: 'Enter y\' as an expression in x.',
+        hints: [`Let \\(f=x^2\\sin x\\) (numerator) and \\(g=x+1\\) (denominator). First find \\(f'\\) using the *product* rule on \\(x^2\\) and \\(\\sin x\\): \\(f'=2x\\sin x+x^2\\cos x\\).`, `\\(g'=1\\). Now plug \\(f, f', g, g'\\) into the quotient rule formula \\(y'=\\dfrac{f'g-fg'}{g^2}\\).`, `Don't expand everything out — it's fine to leave the numerator as a sum of products, as long as every term is accounted for.`],
+        solution: [`First, the product rule on the numerator \\(f=x^2\\sin x\\): \\(f'=2x\\sin x+x^2\\cos x\\).`, `The denominator is \\(g=x+1\\), so \\(g'=1\\).`, `Quotient rule: \\(y'=\\dfrac{f'g-fg'}{g^2}=\\dfrac{(2x\\sin x+x^2\\cos x)(x+1)-x^2\\sin x}{(x+1)^2}\\).`]
       }
     ]
   },
@@ -235,6 +283,11 @@ window.TOPICS.push({
         inputType: 'expr', variable: 'x', answer: 'sec(x)+x*sec(x)*tan(x)', formatHint: 'Enter y\' as an expression in x.',
         hints: [`Let \\(f=x\\), \\(g=\\sec x\\). Find \\(f'\\) and \\(g'\\).`, `\\(f'=1\\), \\(g'=\\sec x\\tan x\\). Apply the product rule.`, `\\(y'=1\\cdot\\sec x + x\\cdot\\sec x\\tan x\\).`],
         solution: [`\\(f'=1,\\ g'=\\sec x\\tan x\\). \\(y'=\\sec x + x\\sec x\\tan x\\).`]
+      },
+      { id: 'p4', prompt: `Differentiate \\(y=\\dfrac{\\cos x}{1+\\sin x}\\) using the quotient rule, then simplify using \\(\\sin^2x+\\cos^2x=1\\). You should get a surprisingly short final answer.`,
+        inputType: 'expr', variable: 'x', answer: '-1/(1+sin(x))', formatHint: 'Enter y\' as a simplified expression in x.',
+        hints: [`Let \\(f=\\cos x\\), \\(g=1+\\sin x\\). Find \\(f'\\) and \\(g'\\).`, `\\(f'=-\\sin x\\), \\(g'=\\cos x\\). Apply \\(y'=\\dfrac{f'g-fg'}{g^2}\\): the numerator is \\(-\\sin x(1+\\sin x)-\\cos x\\cos x\\).`, `Expand the numerator: \\(-\\sin x-\\sin^2x-\\cos^2x\\). Use \\(\\sin^2x+\\cos^2x=1\\) to simplify it to just \\(-\\sin x-1\\), which factors nicely against the denominator.`],
+        solution: [`\\(f'=-\\sin x,\\ g'=\\cos x\\). Numerator: \\(-\\sin x(1+\\sin x)-\\cos x\\cdot\\cos x = -\\sin x-\\sin^2x-\\cos^2x\\).`, `By the Pythagorean identity, \\(\\sin^2x+\\cos^2x=1\\), so the numerator becomes \\(-\\sin x-1=-(1+\\sin x)\\).`, `\\(y'=\\dfrac{-(1+\\sin x)}{(1+\\sin x)^2}=\\dfrac{-1}{1+\\sin x}\\) (one factor of \\((1+\\sin x)\\) cancels).`]
       }
     ]
   },
@@ -283,6 +336,12 @@ window.TOPICS.push({
         inputType: 'expr', variable: 'x', answer: '6*tan(3*x)*sec(3*x)^2', formatHint: 'Enter y\' as an expression in x.',
         hints: [`This is a chain inside a chain: outermost is \\(u^2\\) with \\(u=\\tan(3x)\\), and \\(\\tan(3x)\\) is itself a chain rule with inner \\(3x\\).`, `Outer layer: \\(\\frac{d}{dx}[u^2]=2u\\cdot u' = 2\\tan(3x)\\cdot\\frac{d}{dx}[\\tan(3x)]\\).`, `\\(\\frac{d}{dx}[\\tan(3x)] = \\sec^2(3x)\\cdot3\\). Multiply everything together.`],
         solution: [`Let \\(u=\\tan(3x)\\). \\(y=u^2 \\Rightarrow y'=2u\\cdot u'\\).`, `\\(u'=\\sec^2(3x)\\cdot3=3\\sec^2(3x)\\).`, `\\(y'=2\\tan(3x)\\cdot3\\sec^2(3x) = 6\\tan(3x)\\sec^2(3x)\\).`]
+      },
+      { id: 'p5', prompt: `Differentiate \\(y=\\sqrt{\\sin(3x^2)}\\). (Three layers: a square root, wrapped around a sine, wrapped around a polynomial — work from the outside in.)`,
+        inputType: 'expr', variables: ['x'], answer: '3*x*cos(3*x^2)/sqrt(sin(3*x^2))', formatHint: 'Enter y\' as an expression in x.',
+        hints: [`Outermost layer: \\(y=u^{1/2}\\) with \\(u=\\sin(3x^2)\\), so \\(\\frac{dy}{du}=\\frac12u^{-1/2}\\).`, `Middle layer: \\(u=\\sin(v)\\) with \\(v=3x^2\\), so \\(\\frac{du}{dv}=\\cos(v)=\\cos(3x^2)\\).`, `Innermost layer: \\(v=3x^2\\), so \\(\\frac{dv}{dx}=6x\\). Multiply all three derivatives together (chain rule), then simplify.`],
+        solution: [`Work outside-in. Outer: \\(\\frac{d}{du}\\big[u^{1/2}\\big]=\\frac12u^{-1/2}\\) with \\(u=\\sin(3x^2)\\).`, `Middle: \\(\\frac{d}{dv}[\\sin v]=\\cos v\\) with \\(v=3x^2\\), giving \\(\\cos(3x^2)\\).`, `Inner: \\(\\frac{d}{dx}[3x^2]=6x\\).`, `Multiply: \\(y'=\\frac12\\big(\\sin(3x^2)\\big)^{-1/2}\\cdot\\cos(3x^2)\\cdot6x = \\dfrac{3x\\cos(3x^2)}{\\sqrt{\\sin(3x^2)}}\\).`],
+        samplePoints: [ {x:0.2}, {x:0.35}, {x:0.5}, {x:0.65}, {x:0.8} ]
       }
     ]
   }

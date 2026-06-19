@@ -34,22 +34,34 @@ window.TOPICS.push({
     ],
     problems: [
       {
-        id: 'p1', prompt: `Estimate \\(\\displaystyle\\lim_{x\\to 1}\\frac{x^2-1}{x-1}\\) by simplifying first.`,
-        inputType: 'numeric', answer: '2', formatHint: 'Enter an exact number.',
-        hints: [`Try factoring the numerator as a difference of squares.`, `\\(\\dfrac{x^2-1}{x-1}=\\dfrac{(x-1)(x+1)}{x-1}=x+1\\) for \\(x\\neq1\\).`, `Now substitute \\(x=1\\) into the simplified expression \\(x+1\\).`],
-        solution: [`Factor: \\(x^2-1=(x-1)(x+1)\\).`, `Cancel the common factor (valid since \\(x\\neq1\\) as we approach, never equal): \\(\\frac{(x-1)(x+1)}{x-1}=x+1\\).`, `Take the limit of the simplified form: \\(\\lim_{x\\to1}(x+1) = 2\\).`]
+        id: 'p1', prompt: `Estimate \\(\\displaystyle\\lim_{x\\to 2}\\frac{2x^2-3x-2}{x-2}\\) by simplifying first.`,
+        inputType: 'numeric', answer: '5', formatHint: 'Enter an exact number.',
+        hints: [`Factor the numerator — look for a factorization of the form \\((2x+\\square)(x+\\square)\\).`, `\\(2x^2-3x-2=(2x+1)(x-2)\\).`, `Cancel the common factor and substitute \\(x=2\\) into what remains.`],
+        solution: [`Factor: \\(2x^2-3x-2=(2x+1)(x-2)\\) (check: the middle term is \\(2x(-2)+1(x)=-4x+x=-3x\\), which matches).`, `Cancel the common factor \\(x-2\\) (valid since \\(x\\neq2\\) as we approach): \\(\\dfrac{(2x+1)(x-2)}{x-2}=2x+1\\).`, `\\(\\lim_{x\\to2}(2x+1)=2(2)+1=5\\).`]
       },
       {
-        id: 'p2', prompt: `Given \\(f(x)=\\begin{cases}x+1 & x<0\\\\ x^2 & x\\geq0\\end{cases}\\), find \\(\\displaystyle\\lim_{x\\to 0^-}f(x)\\).`,
-        inputType: 'numeric', answer: '1', formatHint: 'Enter an exact number.',
-        hints: [`As \\(x\\to0^-\\), which piece of the definition applies?`, `For \\(x<0\\), \\(f(x)=x+1\\).`, `Substitute \\(x=0\\) into \\(x+1\\).`],
-        solution: [`Approaching from the left means \\(x<0\\), so we use \\(f(x)=x+1\\).`, `\\(\\lim_{x\\to0^-}(x+1) = 0+1 = 1\\).`]
+        id: 'p2', prompt: `Given \\(f(x)=\\begin{cases}x^2-1 & x<-1\\\\ 2x+1 & -1\\leq x<2\\\\ x^2-3 & x\\geq2\\end{cases}\\), find \\(\\displaystyle\\lim_{x\\to -1^-}f(x)\\).`,
+        inputType: 'numeric', answer: '0', formatHint: 'Enter an exact number.',
+        hints: [`As \\(x\\to-1^-\\), you're approaching from values *less* than \\(-1\\) — which piece applies there?`, `For \\(x<-1\\), \\(f(x)=x^2-1\\).`, `Substitute \\(x=-1\\) into \\(x^2-1\\).`],
+        solution: [`Approaching from the left of \\(-1\\) means \\(x<-1\\), so we use \\(f(x)=x^2-1\\).`, `\\(\\lim_{x\\to-1^-}(x^2-1) = (-1)^2-1 = 0\\).`]
       },
       {
-        id: 'p3', prompt: `For the same \\(f\\) as above, does \\(\\displaystyle\\lim_{x\\to 0}f(x)\\) exist? Enter the limit value, or DNE if it does not exist.`,
-        inputType: 'dne_or_numeric', answer: '1', formatHint: 'Enter a number, or type DNE.',
-        hints: [`You need both one-sided limits at 0.`, `From the left: \\(\\lim_{x\\to0^-}f(x)=1\\) (previous problem). From the right, use \\(f(x)=x^2\\).`, `Compare \\(\\lim_{x\\to0^-}f(x)\\) and \\(\\lim_{x\\to0^+}f(x)\\): are they equal?`],
-        solution: [`Left limit: \\(\\lim_{x\\to0^-}(x+1)=1\\).`, `Right limit: \\(\\lim_{x\\to0^+}x^2 = 0\\).`, `Since \\(1\\neq0\\), the two one-sided limits disagree, so \\(\\lim_{x\\to0}f(x)\\) does not exist.`]
+        id: 'p3', prompt: `For the same \\(f\\) as above, find \\(\\displaystyle\\lim_{x\\to -1^+}f(x)\\).`,
+        inputType: 'numeric', answer: '-1', formatHint: 'Enter an exact number.',
+        hints: [`As \\(x\\to-1^+\\), you're approaching from values just *greater* than \\(-1\\) — that falls in the middle piece's range.`, `For \\(-1\\leq x<2\\), \\(f(x)=2x+1\\).`, `Substitute \\(x=-1\\) into \\(2x+1\\).`],
+        solution: [`Approaching from the right of \\(-1\\) lands in the range \\(-1\\leq x<2\\), so \\(f(x)=2x+1\\) applies.`, `\\(\\lim_{x\\to-1^+}(2x+1) = 2(-1)+1 = -1\\).`]
+      },
+      {
+        id: 'p4', prompt: `Still with the same \\(f\\), does \\(\\displaystyle\\lim_{x\\to -1}f(x)\\) exist? Enter the value, or DNE.`,
+        inputType: 'dne_or_numeric', answer: 'DNE', formatHint: 'Enter a number, or type DNE.',
+        hints: [`Compare your two previous answers.`, `\\(\\lim_{x\\to-1^-}f(x)=0\\) and \\(\\lim_{x\\to-1^+}f(x)=-1\\) — are these equal?`, `When the one-sided limits disagree, the two-sided limit...`],
+        solution: [`From the previous two parts, \\(\\lim_{x\\to-1^-}f(x)=0\\) and \\(\\lim_{x\\to-1^+}f(x)=-1\\).`, `Since \\(0\\neq-1\\), the one-sided limits disagree.`, `Therefore \\(\\lim_{x\\to-1}f(x)\\) does not exist (DNE).`]
+      },
+      {
+        id: 'p5', prompt: `Still with the same \\(f\\), does \\(\\displaystyle\\lim_{x\\to 2}f(x)\\) exist? Enter the value, or DNE.`,
+        inputType: 'dne_or_numeric', answer: 'DNE', formatHint: 'Enter a number, or type DNE.',
+        hints: [`You need both one-sided limits at \\(x=2\\). From the left, \\(x<2\\) falls in the middle piece, \\(2x+1\\). From the right, \\(x\\geq2\\) uses \\(x^2-3\\).`, `\\(\\lim_{x\\to2^-}(2x+1)=5\\) and \\(\\lim_{x\\to2^+}(x^2-3)=1\\).`, `Are these two one-sided limits equal?`],
+        solution: [`Left limit (using \\(2x+1\\), valid for \\(x<2\\)): \\(\\lim_{x\\to2^-}(2x+1)=2(2)+1=5\\).`, `Right limit (using \\(x^2-3\\), valid for \\(x\\geq2\\)): \\(\\lim_{x\\to2^+}(x^2-3)=4-3=1\\).`, `Since \\(5\\neq1\\), the two one-sided limits disagree, so \\(\\lim_{x\\to2}f(x)\\) does not exist (DNE).`]
       }
     ]
   },
@@ -110,6 +122,24 @@ window.TOPICS.push({
         inputType: 'numeric', answer: '1', formatHint: 'Enter an exact number.',
         hints: [`Let \\(u=\\sin h\\). What does \\(u\\) approach as \\(h\\to0\\)?`, `Since \\(\\sin h\\) is continuous and \\(\\sin0=0\\), \\(u\\to0\\) as \\(h\\to0\\). Rewrite in terms of \\(u\\).`, `You now have \\(\\lim_{u\\to0}\\dfrac{\\sin u}{u}\\).`],
         solution: [`Let \\(u=\\sin h\\). Since \\(\\sin\\) is continuous, as \\(h\\to0\\) we get \\(u\\to\\sin0=0\\).`, `The limit becomes \\(\\lim_{u\\to0}\\dfrac{\\sin u}{u}\\).`, `By the squeeze theorem (the fundamental trig limit), this equals \\(1\\).`]
+      },
+      {
+        id: 'p6', prompt: `Let \\(f(x)=\\dfrac{\\sqrt{x}-2}{|x-4|}\\). Find \\(\\displaystyle\\lim_{x\\to4^+}f(x)\\). (Hint: rationalize the numerator first.)`,
+        inputType: 'expr_const', answer: '1/4', formatHint: 'Enter the exact value, e.g. 1/4.',
+        hints: [`For \\(x\\to4^+\\), \\(x>4\\) so \\(|x-4|=x-4\\). Multiply numerator and denominator by the conjugate \\(\\sqrt x+2\\) to clear the \\(0/0\\).`, `\\((\\sqrt x-2)(\\sqrt x+2)=x-4\\), so \\(\\dfrac{\\sqrt x-2}{x-4}=\\dfrac{1}{\\sqrt x+2}\\) after cancelling.`, `Now substitute \\(x=4\\) into \\(\\dfrac{1}{\\sqrt x+2}\\).`],
+        solution: [`For \\(x\\to4^+\\), \\(x>4\\) so \\(|x-4|=x-4\\), giving \\(f(x)=\\dfrac{\\sqrt x-2}{x-4}\\).`, `Rationalize: \\(\\dfrac{\\sqrt x-2}{x-4}\\cdot\\dfrac{\\sqrt x+2}{\\sqrt x+2}=\\dfrac{x-4}{(x-4)(\\sqrt x+2)}=\\dfrac{1}{\\sqrt x+2}\\) (valid since \\(x\\neq4\\)).`, `\\(\\lim_{x\\to4^+}\\dfrac{1}{\\sqrt x+2}=\\dfrac{1}{2+2}=\\dfrac14\\).`]
+      },
+      {
+        id: 'p7', prompt: `Same \\(f(x)=\\dfrac{\\sqrt{x}-2}{|x-4|}\\). Find \\(\\displaystyle\\lim_{x\\to4^-}f(x)\\).`,
+        inputType: 'expr_const', answer: '-1/4', formatHint: 'Enter the exact value (it will be negative).',
+        hints: [`For \\(x\\to4^-\\), \\(x<4\\) so \\(|x-4|=-(x-4)=4-x\\).`, `That makes \\(f(x)=\\dfrac{\\sqrt x-2}{-(x-4)}=-\\dfrac{1}{\\sqrt x+2}\\) after the same rationalizing step as before.`, `Substitute \\(x=4\\) into \\(-\\dfrac{1}{\\sqrt x+2}\\).`],
+        solution: [`For \\(x\\to4^-\\), \\(x<4\\) so \\(|x-4|=4-x=-(x-4)\\), giving \\(f(x)=\\dfrac{\\sqrt x-2}{-(x-4)}\\).`, `Using the same rationalization as before, \\(\\dfrac{\\sqrt x-2}{x-4}=\\dfrac{1}{\\sqrt x+2}\\), so \\(f(x)=-\\dfrac{1}{\\sqrt x+2}\\) here.`, `\\(\\lim_{x\\to4^-}\\left(-\\dfrac{1}{\\sqrt x+2}\\right)=-\\dfrac14\\).`]
+      },
+      {
+        id: 'p8', prompt: `Still with \\(f(x)=\\dfrac{\\sqrt{x}-2}{|x-4|}\\), does \\(\\displaystyle\\lim_{x\\to4}f(x)\\) exist? Enter the value, or DNE.`,
+        inputType: 'dne_or_numeric', answer: 'DNE', formatHint: 'Enter a number, or type DNE.',
+        hints: [`Compare your two previous answers.`, `\\(\\frac14\\neq-\\frac14\\) — what does that tell you about the two-sided limit?`, `When the left and right limits disagree, the two-sided limit...`],
+        solution: [`From the previous two parts, \\(\\lim_{x\\to4^+}f(x)=\\frac14\\) and \\(\\lim_{x\\to4^-}f(x)=-\\frac14\\).`, `Since \\(\\frac14\\neq-\\frac14\\), the one-sided limits do not agree.`, `Therefore \\(\\lim_{x\\to4}f(x)\\) does not exist (DNE).`]
       }
     ]
   },
@@ -153,6 +183,16 @@ window.TOPICS.push({
         inputType: 'numeric', answer: '-2', formatHint: 'Enter an exact number.',
         hints: [`Both numerator and denominator have degree 3, so the direction (\\(+\\infty\\) or \\(-\\infty\\)) doesn't matter for this shortcut.`, `Divide every term by \\(x^3\\).`, `Take the ratio of the leading coefficients: \\(-2\\) and \\(1\\).`],
         solution: [`Degrees match (both 3), so as \\(x\\to-\\infty\\) the limit is still the ratio of leading coefficients.`, `\\(\\dfrac{-2x^3+5}{x^3+4}\\to\\dfrac{-2}{1}=-2\\).`]
+      },
+      { id: 'p4', prompt: `Evaluate \\(\\displaystyle\\lim_{x\\to\\infty}\\frac{\\sqrt{4x^2+3}}{x+1}\\).`,
+        inputType: 'numeric', answer: '2', formatHint: 'Enter an exact number.',
+        hints: [`Inside the square root, the dominant term is \\(4x^2\\), so \\(\\sqrt{4x^2+3}\\) behaves like \\(\\sqrt{4x^2}=2|x|\\). Since \\(x\\to+\\infty\\), \\(x>0\\) so \\(|x|=x\\).`, `Divide numerator and denominator by \\(x\\) — but to push the \\(x\\) *inside* the square root, you actually need to divide by \\(x=\\sqrt{x^2}\\): \\(\\dfrac{\\sqrt{4x^2+3}}{x}=\\sqrt{\\dfrac{4x^2+3}{x^2}}=\\sqrt{4+\\frac{3}{x^2}}\\) (valid since \\(x>0\\)).`, `So the limit becomes \\(\\dfrac{\\sqrt{4+3/x^2}}{1+1/x}\\) — let \\(x\\to\\infty\\).`],
+        solution: [`For \\(x>0\\), write \\(x=\\sqrt{x^2}\\) so that we can divide what's under the root: \\(\\dfrac{\\sqrt{4x^2+3}}{x+1} = \\dfrac{\\sqrt{4x^2+3}/x}{(x+1)/x} = \\dfrac{\\sqrt{(4x^2+3)/x^2}}{1+1/x} = \\dfrac{\\sqrt{4+3/x^2}}{1+1/x}\\).`, `As \\(x\\to\\infty\\), \\(3/x^2\\to0\\) and \\(1/x\\to0\\), so this approaches \\(\\dfrac{\\sqrt4}{1}=\\dfrac21=2\\).`]
+      },
+      { id: 'p5', prompt: `Evaluate \\(\\displaystyle\\lim_{x\\to-\\infty}\\frac{\\sqrt{4x^2+3}}{x+1}\\). (Careful — the sign flips compared to the previous problem!)`,
+        inputType: 'numeric', answer: '-2', formatHint: 'Enter an exact number.',
+        hints: [`Now \\(x\\to-\\infty\\), so \\(x<0\\) and \\(|x|=-x\\). When you divide what's under the root by \\(x^2\\), you must divide the *outside* by \\(|x|=-x\\), not by \\(x\\) directly.`, `\\(\\dfrac{\\sqrt{4x^2+3}}{x+1} = \\dfrac{\\sqrt{4x^2+3}/|x|}{(x+1)/|x|} = \\dfrac{\\sqrt{4+3/x^2}}{(x+1)/(-x)}\\).`, `Simplify the denominator: \\(\\dfrac{x+1}{-x} = -1-\\dfrac1x\\), and let \\(x\\to-\\infty\\).`],
+        solution: [`For \\(x<0\\), \\(|x|=-x\\). Dividing numerator and denominator by \\(|x|=-x\\): \\(\\dfrac{\\sqrt{4x^2+3}}{x+1} = \\dfrac{\\sqrt{4x^2+3}/(-x)}{(x+1)/(-x)} = \\dfrac{\\sqrt{(4x^2+3)/x^2}}{-1-1/x} = \\dfrac{\\sqrt{4+3/x^2}}{-1-1/x}\\).`, `As \\(x\\to-\\infty\\), \\(3/x^2\\to0\\) and \\(1/x\\to0\\), so this approaches \\(\\dfrac{2}{-1}=-2\\).`, `(Notice the answer flips sign from the \\(x\\to+\\infty\\) case — this is the classic trap with \\(\\sqrt{x^2}=|x|\\) at infinity.)`]
       }
     ]
   },
@@ -195,6 +235,16 @@ window.TOPICS.push({
         inputType: 'text', answer: ['false', 'f'], formatHint: 'Enter true or false.',
         hints: [`Look closely at the condition "\\(0<|x-a|\\)" in the definition.`, `That strict inequality \\(0<|x-a|\\) explicitly excludes \\(x=a\\).`, `So the definition never even looks at \\(f(a)\\) — only at nearby values.`],
         solution: [`The condition is \\(0<|x-a|<\\delta\\), which explicitly excludes \\(x=a\\).`, `So the definition never requires \\(f(a)\\) to be defined at all — the statement is False.`]
+      },
+      { id: 'p4', prompt: `For \\(\\lim_{x\\to2}x^2=4\\) (a *nonlinear* function, so the trick from before won't directly work), suppose we agree to only consider \\(\\delta\\leq1\\). Under that restriction, \\(0<|x-2|<\\delta\\) forces \\(1<x<3\\), so \\(|x+2|<5\\). Using \\(|x^2-4|=|x-2|\\cdot|x+2|\\), this gives a bound \\(|x^2-4| < k\\,|x-2|\\) for some constant \\(k\\). Find \\(k\\).`,
+        inputType: 'numeric', answer: '5', formatHint: 'Enter an exact number.',
+        hints: [`Factor \\(x^2-4=(x-2)(x+2)\\), so \\(|x^2-4|=|x-2|\\cdot|x+2|\\).`, `Since \\(\\delta\\leq1\\) restricts us to \\(1<x<3\\), what's the largest \\(|x+2|\\) can be on that interval?`, `On \\(1<x<3\\), \\(x+2\\) ranges over \\((3,5)\\), so \\(|x+2|<5\\).`],
+        solution: [`\\(x^2-4=(x-2)(x+2)\\), so \\(|x^2-4|=|x-2|\\,|x+2|\\).`, `The restriction \\(\\delta\\leq1\\) means \\(|x-2|<1\\), i.e. \\(1<x<3\\), so \\(x+2\\in(3,5)\\) and therefore \\(|x+2|<5\\).`, `Combining: \\(|x^2-4| < 5|x-2|\\). So \\(k=5\\).`]
+      },
+      { id: 'p5', prompt: `Continuing from the previous problem: ignoring (for now) the separate restriction \\(\\delta\\leq1\\), what additional bound on \\(\\delta\\) (in terms of \\(\\varepsilon\\)) makes \\(5|x-2|<\\varepsilon\\) — i.e. what's the second candidate value for \\(\\delta\\)? Enter as an expression in epsilon, e.g. epsilon/5.`,
+        inputType: 'expr', variables: ['epsilon'], answer: 'epsilon/5', formatHint: 'Enter an expression using "epsilon", e.g. epsilon/5.',
+        hints: [`You need \\(5|x-2|<\\varepsilon\\).`, `Divide both sides by \\(5\\) to isolate \\(|x-2|\\).`, `Whatever bounds \\(|x-2|\\) here is this candidate value for \\(\\delta\\). (The actual rigorous choice would be \\(\\delta=\\min(1,\\varepsilon/5)\\), combining both restrictions — but this problem only asks for the second one.)`],
+        solution: [`We need \\(5|x-2|<\\varepsilon \\iff |x-2|<\\varepsilon/5\\).`, `So this candidate is \\(\\delta=\\varepsilon/5\\). Together with the separate restriction \\(\\delta\\leq1\\), the full rigorous choice is \\(\\delta=\\min(1,\\varepsilon/5)\\) — taking the smaller of the two keeps *both* bounding steps valid at once.`]
       }
     ]
   },
@@ -249,6 +299,11 @@ window.TOPICS.push({
         inputType: 'numeric', answer: '7', formatHint: 'Enter an exact number.',
         hints: [`Factor \\(x^2-3x-10\\) — look for two numbers that multiply to \\(-10\\) and add to \\(-3\\).`, `Those numbers are \\(-5\\) and \\(2\\): \\(x^2-3x-10=(x-5)(x+2)\\).`, `Cancel and evaluate the simplified expression at \\(x=5\\).`],
         solution: [`\\(x^2-3x-10=(x-5)(x+2)\\), so for \\(x\\neq5\\), \\(p(x)=x+2\\).`, `\\(\\lim_{x\\to5}(x+2)=7\\).`, `Define \\(p(5)=7\\).`]
+      },
+      { id: 'p6', prompt: `Define \\(q(2)\\) so that \\(q(x)=\\dfrac{x^3-8}{x-2}\\) is continuous at \\(x=2\\). (You'll need the difference-of-cubes factoring \\(a^3-b^3=(a-b)(a^2+ab+b^2)\\).)`,
+        inputType: 'numeric', answer: '12', formatHint: 'Enter an exact number.',
+        hints: [`Write \\(x^3-8=x^3-2^3\\) and apply the difference-of-cubes formula with \\(a=x,\\ b=2\\).`, `\\(x^3-8=(x-2)(x^2+2x+4)\\).`, `Cancel the \\((x-2)\\) factor, then evaluate \\(x^2+2x+4\\) at \\(x=2\\).`],
+        solution: [`Difference of cubes: \\(x^3-8=(x-2)(x^2+2x+4)\\).`, `For \\(x\\neq2\\), \\(q(x)=\\dfrac{(x-2)(x^2+2x+4)}{x-2}=x^2+2x+4\\).`, `\\(\\lim_{x\\to2}(x^2+2x+4)=4+4+4=12\\). Define \\(q(2)=12\\).`]
       }
     ]
   },
@@ -292,6 +347,16 @@ window.TOPICS.push({
         inputType: 'text', answer: ['true', 't'], formatHint: 'Enter true or false.',
         hints: [`Exponential functions \\(a^x\\) with \\(a>0\\) have domain all of \\(\\mathbb{R}\\).`, `There's no value of \\(x\\) that makes \\(e^x\\) undefined.`, `So is it continuous everywhere?`],
         solution: [`\\(e^x\\) is defined and continuous for every real \\(x\\) — there is no domain restriction.`, `The statement is True.`]
+      },
+      { id: 'p4', prompt: `What is the largest open interval on which \\(f(x)=\\ln(4-x^2)\\) is continuous? Enter in the form -2<x<2.`,
+        inputType: 'text', answer: ['-2<x<2'], formatHint: 'Enter in the form -2<x<2 (no spaces).',
+        hints: [`\\(\\ln(u)\\) is continuous exactly where \\(u>0\\); here \\(u=4-x^2\\).`, `Solve \\(4-x^2>0\\), i.e. \\(x^2<4\\).`, `\\(x^2<4 \\iff -2<x<2\\).`],
+        solution: [`\\(f\\) is a composition: outer \\(\\ln(u)\\) needs \\(u>0\\); here \\(u=4-x^2\\), so we need \\(4-x^2>0\\).`, `\\(4-x^2>0 \\iff x^2<4 \\iff -2<x<2\\).`, `So \\(f\\) is continuous exactly on \\(-2<x<2\\) (and undefined, hence discontinuous, outside that interval).`]
+      },
+      { id: 'p5', prompt: `What is the domain (and interval of continuity) of \\(f(x)=\\arcsin(x-1)\\)? Enter in the form 0<=x<=2.`,
+        inputType: 'text', answer: ['0<=x<=2'], formatHint: 'Enter in the form 0<=x<=2 (no spaces).',
+        hints: [`\\(\\arcsin(u)\\) requires \\(-1\\leq u\\leq1\\); here \\(u=x-1\\).`, `Solve \\(-1\\leq x-1\\leq1\\) by adding \\(1\\) to every part of the inequality.`, `That gives \\(0\\leq x\\leq2\\).`],
+        solution: [`\\(\\arcsin(u)\\) is only defined for \\(-1\\leq u\\leq1\\); here \\(u=x-1\\), so we need \\(-1\\leq x-1\\leq1\\).`, `Adding \\(1\\) throughout: \\(0\\leq x\\leq2\\).`, `\\(\\arcsin\\) is continuous on its entire (closed) domain, so \\(f\\) is continuous exactly on \\(0\\leq x\\leq2\\).`]
       }
     ]
   }

@@ -160,6 +160,11 @@ window.TOPICS.push({
         hints: [`Take \\(\\ln\\) of both sides: \\(\\ln y = \\cos x\\cdot\\ln(\\sin x)\\).`, `Differentiate (product rule, with a chain rule inside \\(\\ln(\\sin x)\\)): \\(\\dfrac{y'}{y} = -\\sin x\\ln(\\sin x) + \\cos x\\cdot\\dfrac{\\cos x}{\\sin x}\\).`, `Multiply both sides by \\(y = (\\sin x)^{\\cos x}\\).`],
         solution: [`\\(\\ln y = \\cos x\\ln(\\sin x)\\). Differentiate: \\(\\dfrac{y'}{y} = -\\sin x\\ln(\\sin x) + \\cos x\\cdot\\dfrac{\\cos x}{\\sin x}\\).`, `Simplify the second term: \\(\\dfrac{\\cos^2x}{\\sin x}\\).`, `Multiply by \\(y\\): \\(y' = (\\sin x)^{\\cos x}\\left[\\dfrac{\\cos^2x}{\\sin x} - \\sin x\\ln(\\sin x)\\right]\\).`],
         samplePoints: [ {x:0.4}, {x:0.6}, {x:0.9}, {x:1.2}, {x:1.5} ]
+      },
+      { id: 'p5', prompt: `Use logarithmic differentiation to differentiate \\(y=(3x)^{2x}\\) (for \\(x>0\\)) — here *both* the base and the exponent involve \\(x\\).`,
+        inputType: 'expr', variables: ['x'], answer: '(3*x)^(2*x)*(2*log(3*x)+2)', formatHint: 'Enter y\' as an expression in x.',
+        hints: [`Take \\(\\ln\\) of both sides: \\(\\ln y = 2x\\cdot\\ln(3x)\\).`, `Differentiate the right side with the product rule (and a chain rule inside \\(\\ln(3x)\\)): \\(\\dfrac{y'}{y} = 2\\ln(3x) + 2x\\cdot\\dfrac{3}{3x}\\). Simplify the second term first — the \\(3\\)'s cancel.`, `Multiply both sides by \\(y=(3x)^{2x}\\) to isolate \\(y'\\).`],
+        solution: [`\\(\\ln y = 2x\\ln(3x)\\). Differentiate (product rule): \\(\\dfrac{y'}{y} = 2\\ln(3x) + 2x\\cdot\\dfrac{d}{dx}[\\ln(3x)]\\).`, `\\(\\dfrac{d}{dx}[\\ln(3x)]=\\dfrac{3}{3x}=\\dfrac1x\\), so the second term is \\(2x\\cdot\\dfrac1x=2\\).`, `So \\(\\dfrac{y'}{y}=2\\ln(3x)+2\\). Multiply by \\(y\\): \\(y'=(3x)^{2x}\\big[2\\ln(3x)+2\\big]\\).`]
       }
     ]
   },
@@ -204,6 +209,11 @@ window.TOPICS.push({
         hints: [`Chain rule: outer function \\(\\arcsin(u)\\), inner \\(u=x/2\\).`, `Derivative of outside: \\(\\dfrac{1}{\\sqrt{1-u^2}} = \\dfrac{1}{\\sqrt{1-x^2/4}}\\). Derivative of inside: \\(\\dfrac12\\).`, `Multiply, then simplify the square root by factoring out \\(\\frac14\\) from under it.`],
         solution: [`\\(y'=\\dfrac{1}{\\sqrt{1-x^2/4}}\\cdot\\dfrac12\\).`, `Rewrite \\(1-x^2/4 = \\dfrac{4-x^2}{4}\\), so \\(\\sqrt{1-x^2/4}=\\dfrac{\\sqrt{4-x^2}}{2}\\).`, `\\(y' = \\dfrac{1}{2}\\cdot\\dfrac{2}{\\sqrt{4-x^2}} = \\dfrac{1}{\\sqrt{4-x^2}}\\).`],
         samplePoints: [ {x:-0.8}, {x:-0.3}, {x:0.5}, {x:1.0}, {x:1.4} ]
+      },
+      { id: 'p4', prompt: `Differentiate \\(y=\\ln(\\arctan x)\\) (for \\(x>0\\), so that \\(\\arctan x>0\\) and the logarithm is defined). This stacks a log on top of an inverse trig function — chain rule twice.`,
+        inputType: 'expr', variables: ['x'], answer: '1/((1+x^2)*atan(x))', formatHint: 'Enter y\' as an expression in x.',
+        hints: [`Outer function: \\(\\ln(u)\\), inner: \\(u=\\arctan x\\). \\(\\dfrac{d}{dx}[\\ln u] = \\dfrac{u'}{u}\\).`, `You need \\(u'=\\dfrac{d}{dx}[\\arctan x]=\\dfrac{1}{1+x^2}\\).`, `Put it together as \\(\\dfrac{u'}{u}\\) — don't forget \\(u=\\arctan x\\) stays in the denominator.`],
+        solution: [`Let \\(u=\\arctan x\\), so \\(y=\\ln u\\) and \\(y'=\\dfrac{u'}{u}\\) by the chain rule.`, `\\(u'=\\dfrac{d}{dx}[\\arctan x]=\\dfrac{1}{1+x^2}\\).`, `So \\(y' = \\dfrac{1/(1+x^2)}{\\arctan x} = \\dfrac{1}{(1+x^2)\\arctan x}\\).`]
       }
     ]
   },
@@ -246,6 +256,11 @@ window.TOPICS.push({
         inputType: 'expr_const', answer: '1/pi', formatHint: 'Enter exact value, e.g. 1/pi.',
         hints: [`Differentiate \\(V=\\frac43\\pi r^3\\) w.r.t. \\(t\\): \\(\\dfrac{dV}{dt}=4\\pi r^2\\dfrac{dr}{dt}\\).`, `Substitute \\(r=5\\) and \\(\\dfrac{dV}{dt}=100\\), then solve for \\(\\dfrac{dr}{dt}\\).`, `\\(100 = 4\\pi(25)\\dfrac{dr}{dt} = 100\\pi\\dfrac{dr}{dt}\\).`],
         solution: [`\\(\\dfrac{dV}{dt}=4\\pi r^2\\dfrac{dr}{dt}\\). At \\(r=5\\): \\(100 = 4\\pi(25)\\dfrac{dr}{dt}=100\\pi\\dfrac{dr}{dt}\\).`, `\\(\\dfrac{dr}{dt}=\\dfrac{100}{100\\pi}=\\dfrac1\\pi\\) cm/s.`]
+      },
+      { id: 'p4', prompt: `An inverted conical tank has height \\(12\\) m and top radius \\(3\\) m. Water drains out at \\(2\\) m³/min. How fast (in m/min) is the water *level* dropping when the depth is \\(4\\) m? Enter as a positive number (the speed), exact value in terms of pi, e.g. 1/pi.`,
+        inputType: 'expr_const', answer: '2/pi', formatHint: 'Enter exact value, e.g. 2/pi.',
+        hints: [`First relate \\(r\\) and \\(h\\) using similar triangles: the cone's full radius (3) over full height (12) must match \\(r/h\\) at any water level, so \\(r=\\dfrac{h}{4}\\).`, `Substitute that into \\(V=\\frac13\\pi r^2h\\) to write \\(V\\) purely in terms of \\(h\\): \\(V=\\dfrac{\\pi h^3}{48}\\).`, `Differentiate w.r.t. \\(t\\): \\(\\dfrac{dV}{dt}=\\dfrac{\\pi h^2}{16}\\dfrac{dh}{dt}\\). Substitute \\(h=4\\) and \\(\\dfrac{dV}{dt}=-2\\) (draining), then solve for \\(\\dfrac{dh}{dt}\\).`],
+        solution: [`Similar triangles give \\(\\dfrac{r}{h}=\\dfrac{3}{12}=\\dfrac14\\), so \\(r=\\dfrac h4\\).`, `Substitute into the cone volume: \\(V=\\dfrac13\\pi r^2h=\\dfrac13\\pi\\left(\\dfrac h4\\right)^2h=\\dfrac{\\pi h^3}{48}\\) — now \\(V\\) depends on \\(h\\) alone.`, `Differentiate: \\(\\dfrac{dV}{dt}=\\dfrac{\\pi h^2}{16}\\dfrac{dh}{dt}\\). At \\(h=4\\), \\(\\dfrac{dV}{dt}=-2\\) (volume decreasing): \\(-2=\\dfrac{\\pi(16)}{16}\\dfrac{dh}{dt}=\\pi\\dfrac{dh}{dt}\\).`, `\\(\\dfrac{dh}{dt}=-\\dfrac2\\pi\\) — the water level is dropping at \\(\\dfrac2\\pi\\) m/min.`]
       }
     ]
   },
@@ -290,6 +305,11 @@ window.TOPICS.push({
         inputType: 'numeric', answer: '1.08', formatHint: 'Enter as a decimal.',
         hints: [`\\(f(1)=1\\), \\(\\Delta x = 0.02\\).`, `\\(f'(x)=4x^3\\), so \\(f'(1)=4\\).`, `\\(f(1.02)\\approx 1+4(0.02)\\).`],
         solution: [`\\(f(1)=1,\\ f'(1)=4,\\ \\Delta x=0.02\\).`, `\\(f(1.02)\\approx1+4(0.02)=1+0.08=1.08\\).`]
+      },
+      { id: 'p4', prompt: `Use a local linear approximation to estimate \\(\\sin(31^\\circ)\\), anchoring at \\(x_0=30^\\circ=\\dfrac{\\pi}{6}\\) radians (you'll need exact values of \\(\\sin\\) and \\(\\cos\\) at \\(\\pi/6\\), and \\(\\Delta x\\) converted to radians). Enter as a decimal.`,
+        inputType: 'expr_const', answer: '1/2+sqrt(3)/2*pi/180', formatHint: 'Enter as a decimal, e.g. 0.5151.',
+        hints: [`Derivatives must be taken with \\(x\\) in radians, so first convert: \\(\\Delta x = 1^\\circ = \\dfrac{\\pi}{180}\\) radians.`, `\\(f(x)=\\sin x\\), so \\(f(\\pi/6)=\\sin(\\pi/6)=\\dfrac12\\) and \\(f'(x)=\\cos x\\), so \\(f'(\\pi/6)=\\cos(\\pi/6)=\\dfrac{\\sqrt3}{2}\\).`, `\\(\\sin(31^\\circ)\\approx f(\\pi/6)+f'(\\pi/6)\\cdot\\Delta x = \\dfrac12+\\dfrac{\\sqrt3}{2}\\cdot\\dfrac{\\pi}{180}\\).`],
+        solution: [`Work in radians throughout: \\(x_0=\\dfrac\\pi6\\), \\(\\Delta x = 1^\\circ=\\dfrac{\\pi}{180}\\) rad.`, `\\(f(\\pi/6)=\\sin(\\pi/6)=\\dfrac12\\). \\(f'(x)=\\cos x\\), so \\(f'(\\pi/6)=\\cos(\\pi/6)=\\dfrac{\\sqrt3}{2}\\).`, `\\(\\sin(31^\\circ)\\approx\\dfrac12+\\dfrac{\\sqrt3}{2}\\cdot\\dfrac{\\pi}{180}\\approx0.5+0.0151=0.5151\\).`, `(The true value is \\(\\sin31^\\circ\\approx0.5150\\) — the tiny gap is exactly the approximation error.)`]
       }
     ]
   },
@@ -338,6 +358,11 @@ window.TOPICS.push({
         inputType: 'numeric', answer: '0', formatHint: 'Enter an exact number.',
         hints: [`Form is \\(\\frac{\\infty}{\\infty}\\). Differentiate once: \\(\\dfrac{6x}{e^x}\\) — still indeterminate.`, `Differentiate again: \\(\\dfrac{6}{e^x}\\).`, `What happens to \\(\\dfrac{6}{e^x}\\) as \\(x\\to\\infty\\)?`],
         solution: [`First application: \\(\\dfrac{6x}{e^x}\\), still \\(\\frac{\\infty}{\\infty}\\).`, `Second application: \\(\\dfrac{6}{e^x}\\).`, `As \\(x\\to\\infty\\), \\(e^x\\to\\infty\\), so \\(\\dfrac{6}{e^x}\\to0\\).`]
+      },
+      { id: 'p5', prompt: `Evaluate \\(\\displaystyle\\lim_{x\\to0^+}x\\ln x\\). (This is the indeterminate form \\(0\\cdot(-\\infty)\\) — not directly a fraction, so rewrite it as one first before applying L'Hôpital's Rule.)`,
+        inputType: 'numeric', answer: '0', formatHint: 'Enter an exact number.',
+        hints: [`Rewrite the product as a quotient: \\(x\\ln x = \\dfrac{\\ln x}{1/x}\\). Check the new form: as \\(x\\to0^+\\), numerator \\(\\to-\\infty\\), denominator \\(\\to+\\infty\\) — that's \\(\\frac{\\infty}{\\infty}\\), legal for L'Hôpital.`, `Differentiate numerator and denominator separately: \\(\\dfrac{d}{dx}[\\ln x]=1/x\\), \\(\\dfrac{d}{dx}[1/x]=-1/x^2\\).`, `Simplify the resulting fraction \\(\\dfrac{1/x}{-1/x^2}\\) before taking the limit.`],
+        solution: [`Rewrite as a quotient: \\(x\\ln x=\\dfrac{\\ln x}{1/x}\\), which is now \\(\\dfrac{-\\infty}{\\infty}\\) (a valid \\(\\frac{\\infty}{\\infty}\\)-type form) as \\(x\\to0^+\\).`, `Differentiate top and bottom separately: \\(\\dfrac{1/x}{-1/x^2}\\).`, `Simplify: \\(\\dfrac{1/x}{-1/x^2}=\\dfrac{1}{x}\\cdot\\dfrac{x^2}{-1}=-x\\).`, `\\(\\lim_{x\\to0^+}(-x)=0\\). (Trying to apply L'Hôpital to the *original* product directly, before rewriting, would have been illegal — it's not a fraction at all.)`]
       }
     ]
   }
