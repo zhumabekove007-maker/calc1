@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Practice — Calculus 1 Midterm Prep</title>
-<meta name="description" content="66 practice problems across all MATH161 Calculus 1 midterm subsections, with hints, full solutions, and instant answer checking.">
+<title>Harder Chapter 1 Problem Practice — Calculus 1 Midterm Prep</title>
+<meta name="description" content="A harder, separate Chapter 1 problem set: graph reading, table estimation, infinite limits, an applied compound-interest problem, formal epsilon-delta work, continuity, and the Intermediate-Value Theorem.">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-<a class="skip-link" href="#practice-main">Skip to content</a>
+<a class="skip-link" href="#hard-main">Skip to content</a>
 
 <div class="app-shell">
   <header class="site-header">
@@ -17,37 +17,36 @@
     <nav aria-label="Primary">
       <a href="index.html">Overview</a>
       <a href="topics.html">Topics</a>
-      <a href="practice.html" aria-current="page">Practice</a>
-      <a href="harder-practice.html">Harder Practice</a>
+      <a href="practice.html">Practice</a>
+      <a href="harder-practice.html" aria-current="page">Harder Practice</a>
     </nav>
     <div class="header-search">
-      <input type="search" id="topics-search" placeholder="Search subsections…" aria-label="Search practice subsections">
+      <input type="search" id="topics-search" placeholder="Search problems…" aria-label="Search harder practice problems">
     </div>
   </header>
 
-  <aside class="sidebar" id="sidebar" aria-label="Practice navigation">
-    <nav id="sidebar-nav"><!-- populated by practice-page.js --></nav>
+  <aside class="sidebar" id="sidebar" aria-label="Harder practice navigation">
+    <nav id="sidebar-nav"><!-- populated by harder-practice-page.js --></nav>
   </aside>
 
-  <main class="main-content" id="practice-main-wrapper">
+  <main class="main-content" id="hard-main">
     <div class="content-wide">
+
+      <div class="eyebrow">Chapter 1 · Beyond the midterm-calibrated set</div>
+      <h1>Harder Chapter 1 Problem Practice</h1>
+      <p class="hard-intro" id="hard-intro"><!-- populated by harder-practice-page.js --></p>
 
       <div class="practice-toolbar">
         <div class="practice-toolbar-progress">
-          <span class="overall-progress-text" id="overall-progress-text">0 / 66 problems solved (0%)</span>
+          <span class="overall-progress-text" id="overall-progress-text">0 / 0 checkable problems solved (0%)</span>
           <div class="progress-track"><div class="progress-fill" id="overall-progress-fill" style="width:0%"></div></div>
         </div>
         <div class="practice-toolbar-actions">
-          <button type="button" class="btn" id="start-quiz-btn">Start Mixed Practice</button>
           <button type="button" class="btn btn-secondary" id="reset-progress-btn">Reset progress</button>
         </div>
       </div>
 
-      <div id="normal-area">
-        <div id="practice-main"><noscript>This page needs JavaScript enabled to display practice problems.</noscript></div>
-      </div>
-
-      <div id="quiz-area" hidden></div>
+      <div id="hard-problems"><noscript>This page needs JavaScript enabled to display the problems.</noscript></div>
 
     </div>
   </main>
@@ -57,11 +56,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" crossorigin="anonymous">
-<script src="assets/data-ch1.js"></script>
-<script src="assets/data-ch2.js"></script>
-<script src="assets/data-ch3.js"></script>
+<script src="assets/data-hard-ch1.js"></script>
 <script src="assets/engine.js"></script>
 <script src="assets/render.js"></script>
-<script src="assets/practice-page.js"></script>
+<script src="assets/harder-practice-page.js"></script>
 </body>
 </html>
