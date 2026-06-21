@@ -20,36 +20,7 @@ window.HARD_CH1 = {
         num: '1',
         statement: `For the function \\(f\\) graphed below, find the limit if it exists.`,
         figure: `<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Graph of a piecewise function f used for problem 1, showing a hole, two jumps, a vertical asymptote near x=4, and a horizontal asymptote at y=5.">
-  <g>
-    <line x1="55" y1="25" x2="55" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="101.7" y1="25" x2="101.7" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="148.3" y1="25" x2="148.3" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="195" y1="25" x2="195" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="241.7" y1="25" x2="241.7" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="288.3" y1="25" x2="288.3" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="335" y1="25" x2="335" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="381.7" y1="25" x2="381.7" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="428.3" y1="25" x2="428.3" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="475" y1="25" x2="475" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="521.7" y1="25" x2="521.7" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="568.3" y1="25" x2="568.3" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="615" y1="25" x2="615" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="355" x2="615" y2="355" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="331.4" x2="615" y2="331.4" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="307.9" x2="615" y2="307.9" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="284.3" x2="615" y2="284.3" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="260.7" x2="615" y2="260.7" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="237.1" x2="615" y2="237.1" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="213.6" x2="615" y2="213.6" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="190" x2="615" y2="190" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="166.4" x2="615" y2="166.4" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="142.9" x2="615" y2="142.9" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="119.3" x2="615" y2="119.3" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="95.7" x2="615" y2="95.7" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="72.1" x2="615" y2="72.1" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="48.6" x2="615" y2="48.6" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-    <line x1="55" y1="25" x2="615" y2="25" stroke="#DBD6C4" stroke-width="1" opacity="0.5"/>
-  </g>
+  <rect x="0" y="0" width="640" height="400" fill="#FFFFFF"/>
   <line x1="55" y1="284.3" x2="615" y2="284.3" stroke="#1E2238" stroke-width="1.5"/>
   <line x1="195" y1="25" x2="195" y2="355" stroke="#1E2238" stroke-width="1.5"/>
   <text x="608" y="278" font-size="13" fill="#1E2238">x</text>
@@ -74,28 +45,28 @@ window.HARD_CH1 = {
   <text x="45" y="123.3" font-size="11" text-anchor="end" fill="#565b74">7</text>
   <text x="45" y="76.1" font-size="11" text-anchor="end" fill="#565b74">9</text>
   <text x="45" y="29" font-size="11" text-anchor="end" fill="#565b74">11</text>
-  <line x1="381.7" y1="25" x2="381.7" y2="166.4" stroke="#A4711F" stroke-width="1.5" stroke-dasharray="5,4"/>
-  <line x1="381.7" y1="166.4" x2="615" y2="166.4" stroke="#A4711F" stroke-width="1.5" stroke-dasharray="5,4"/>
-  <path d="M 55,307.9 L 195,237.1" stroke="#38458F" stroke-width="2.5" fill="none"/>
-  <path d="M 55,307.9 L 68,303.6 M 55,307.9 L 62,317.6" stroke="#38458F" stroke-width="2.5" fill="none"/>
-  <circle cx="195" cy="237.1" r="5" fill="#F1EFE6" stroke="#38458F" stroke-width="2.5"/>
-  <circle cx="195" cy="284.3" r="5" fill="#38458F" stroke="#38458F" stroke-width="2.5"/>
-  <path d="M 195,284.3 197.3,284.2 199.7,284.1 202,283.8 204.3,283.3 206.7,282.8 209,282.2 211.3,281.4 213.7,280.5 216,279.5 218.3,278.4 220.7,277.2 223,275.8 225.3,274.3 227.7,272.7 230,271 232.3,269.2 234.7,267.3 237,265.2 239.3,263" stroke="#38458F" stroke-width="2.5" fill="none"/>
-  <circle cx="241.7" cy="260.7" r="5" fill="#F1EFE6" stroke="#38458F" stroke-width="2.5"/>
-  <path d="M 243.1,259.3 245.4,256.8 247.7,254.2 250.1,251.5 252.4,248.6 254.7,245.7 257.1,242.6 259.4,239.4 261.7,236.1 264.1,232.7 266.4,229.1 268.7,225.4 271.1,221.7 273.4,217.8 275.7,213.7 278.1,209.6 280.4,205.3 282.7,201 285.1,196.5 287.4,191.9" stroke="#38458F" stroke-width="2.5" fill="none"/>
-  <circle cx="288.3" cy="190" r="5" fill="#F1EFE6" stroke="#38458F" stroke-width="2.5"/>
-  <circle cx="241.7" cy="166.4" r="5" fill="#38458F" stroke="#38458F" stroke-width="2.5"/>
-  <circle cx="288.3" cy="166.4" r="5" fill="#38458F" stroke="#38458F" stroke-width="2.5"/>
-  <path d="M 288.3,166.4 L 335,190" stroke="#38458F" stroke-width="2.5" fill="none"/>
-  <circle cx="335" cy="190" r="5" fill="#38458F" stroke="#38458F" stroke-width="2.5"/>
-  <path d="M 335,190 L 381.7,166.4" stroke="#38458F" stroke-width="2.5" fill="none"/>
-  <circle cx="381.7" cy="166.4" r="5" fill="#F1EFE6" stroke="#38458F" stroke-width="2.5"/>
-  <path d="M 383.5,25 386.3,25 389.1,25 391.9,59.3 394.7,82.2 397.5,97.1 400.3,107.5 403.1,115.2 405.9,121.1 408.7,125.8 411.5,129.6 414.3,132.8 417.1,135.4 419.9,137.7 422.7,139.6 425.5,141.4 428.3,142.9 431.1,144.2 433.9,145.4 436.7,146.5 439.5,147.4 442.3,148.3 445.1,149.1 447.9,149.8 450.7,150.5 453.5,151.1 456.3,151.7 459.1,152.2 461.9,152.7 464.7,153.2 467.5,153.6 470.3,154 473.1,154.4 475.9,154.8 478.7,155.1 481.5,155.4 484.3,155.7 487.1,156 489.9,156.3 492.7,156.5 495.5,156.8 498.3,157 501.1,157.2 503.9,157.4 506.7,157.6 509.5,157.8 512.3,158 515.1,158.2 517.9,158.4 520.7,158.5 523.5,158.7 526.3,158.8 529.1,159 531.9,159.1 534.7,159.2 537.5,159.4 540.3,159.5 543.1,159.6 545.9,159.7 548.7,159.8 551.5,160 554.3,160.1 557.1,160.2 559.9,160.3 562.7,160.4 565.5,160.4 568.3,160.5 571.1,160.6 573.9,160.7 576.7,160.8 579.5,160.9 582.3,160.9 585.1,161 587.9,161.1 590.7,161.2 593.5,161.2 596.3,161.3 599.1,161.4 601.9,161.4 604.7,161.5 607.5,161.6 610.3,161.6 613.1,161.7" stroke="#38458F" stroke-width="2.5" fill="none"/>
-  <path d="M 613.1,161.7 L 622,159 M 613.1,161.7 L 622,166" stroke="#38458F" stroke-width="2.5" fill="none"/>
-  <text x="386" y="20" font-size="10" fill="#A4711F">↑ +∞</text>
-  <text x="430" y="180" font-size="10" fill="#A4711F">y = 5 (asymptote)</text>
-  <text x="358" y="40" font-size="10" fill="#A4711F" text-anchor="middle">x = 4</text>
-  <circle cx="75" cy="318" r="5" fill="#F1EFE6" stroke="#1E2238" stroke-width="2"/>
+  <line x1="381.7" y1="25" x2="381.7" y2="166.4" stroke="#D32F2F" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="381.7" y1="166.4" x2="615" y2="166.4" stroke="#D32F2F" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <path d="M 55,307.9 L 195,237.1" stroke="#2E6FD9" stroke-width="2.5" fill="none"/>
+  <path d="M 55,307.9 L 68,303.6 M 55,307.9 L 62,317.6" stroke="#2E6FD9" stroke-width="2.5" fill="none"/>
+  <circle cx="195" cy="237.1" r="5" fill="#FFFFFF" stroke="#2E6FD9" stroke-width="2.5"/>
+  <circle cx="195" cy="284.3" r="5" fill="#2E6FD9" stroke="#2E6FD9" stroke-width="2.5"/>
+  <path d="M 195,284.3 197.3,284.2 199.7,284.1 202,283.8 204.3,283.3 206.7,282.8 209,282.2 211.3,281.4 213.7,280.5 216,279.5 218.3,278.4 220.7,277.2 223,275.8 225.3,274.3 227.7,272.7 230,271 232.3,269.2 234.7,267.3 237,265.2 239.3,263" stroke="#2E6FD9" stroke-width="2.5" fill="none"/>
+  <circle cx="241.7" cy="260.7" r="5" fill="#FFFFFF" stroke="#2E6FD9" stroke-width="2.5"/>
+  <path d="M 243.1,259.3 245.4,256.8 247.7,254.2 250.1,251.5 252.4,248.6 254.7,245.7 257.1,242.6 259.4,239.4 261.7,236.1 264.1,232.7 266.4,229.1 268.7,225.4 271.1,221.7 273.4,217.8 275.7,213.7 278.1,209.6 280.4,205.3 282.7,201 285.1,196.5 287.4,191.9" stroke="#2E6FD9" stroke-width="2.5" fill="none"/>
+  <circle cx="288.3" cy="190" r="5" fill="#FFFFFF" stroke="#2E6FD9" stroke-width="2.5"/>
+  <circle cx="241.7" cy="166.4" r="5" fill="#2E6FD9" stroke="#2E6FD9" stroke-width="2.5"/>
+  <circle cx="288.3" cy="166.4" r="5" fill="#2E6FD9" stroke="#2E6FD9" stroke-width="2.5"/>
+  <path d="M 288.3,166.4 L 335,190" stroke="#2E6FD9" stroke-width="2.5" fill="none"/>
+  <circle cx="335" cy="190" r="5" fill="#2E6FD9" stroke="#2E6FD9" stroke-width="2.5"/>
+  <path d="M 335,190 L 381.7,166.4" stroke="#2E6FD9" stroke-width="2.5" fill="none"/>
+  <circle cx="381.7" cy="166.4" r="5" fill="#FFFFFF" stroke="#2E6FD9" stroke-width="2.5"/>
+  <path d="M 383.5,25 386.3,25 389.1,25 391.9,59.3 394.7,82.2 397.5,97.1 400.3,107.5 403.1,115.2 405.9,121.1 408.7,125.8 411.5,129.6 414.3,132.8 417.1,135.4 419.9,137.7 422.7,139.6 425.5,141.4 428.3,142.9 431.1,144.2 433.9,145.4 436.7,146.5 439.5,147.4 442.3,148.3 445.1,149.1 447.9,149.8 450.7,150.5 453.5,151.1 456.3,151.7 459.1,152.2 461.9,152.7 464.7,153.2 467.5,153.6 470.3,154 473.1,154.4 475.9,154.8 478.7,155.1 481.5,155.4 484.3,155.7 487.1,156 489.9,156.3 492.7,156.5 495.5,156.8 498.3,157 501.1,157.2 503.9,157.4 506.7,157.6 509.5,157.8 512.3,158 515.1,158.2 517.9,158.4 520.7,158.5 523.5,158.7 526.3,158.8 529.1,159 531.9,159.1 534.7,159.2 537.5,159.4 540.3,159.5 543.1,159.6 545.9,159.7 548.7,159.8 551.5,160 554.3,160.1 557.1,160.2 559.9,160.3 562.7,160.4 565.5,160.4 568.3,160.5 571.1,160.6 573.9,160.7 576.7,160.8 579.5,160.9 582.3,160.9 585.1,161 587.9,161.1 590.7,161.2 593.5,161.2 596.3,161.3 599.1,161.4 601.9,161.4 604.7,161.5 607.5,161.6 610.3,161.6 613.1,161.7" stroke="#2E6FD9" stroke-width="2.5" fill="none"/>
+  <path d="M 613.1,161.7 L 622,159 M 613.1,161.7 L 622,166" stroke="#2E6FD9" stroke-width="2.5" fill="none"/>
+  <text x="386" y="20" font-size="10" fill="#D32F2F">↑ +∞</text>
+  <text x="430" y="180" font-size="10" fill="#D32F2F">y = 5 (asymptote)</text>
+  <text x="358" y="40" font-size="10" fill="#D32F2F" text-anchor="middle">x = 4</text>
+  <circle cx="75" cy="318" r="5" fill="#FFFFFF" stroke="#1E2238" stroke-width="2"/>
   <text x="87" y="322" font-size="11" fill="#1E2238">open = limit value (not f's value there)</text>
   <circle cx="75" cy="340" r="5" fill="#1E2238" stroke="#1E2238" stroke-width="2"/>
   <text x="87" y="344" font-size="11" fill="#1E2238">filled = f's actual value at that x</text>
