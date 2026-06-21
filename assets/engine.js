@@ -36,7 +36,10 @@
 
   function safeEval(mathjs, expr, scope) {
     try {
-      var v = mathjs.evaluate(expr, scope || {});
+      // mathjs only recognizes `log(x)` for natural log, not `ln(x)` — but every
+      // problem on this site is written in terms of ln, so accept it as an alias.
+      var normalizedExpr = String(expr).replace(/\bln(\s*\()/gi, 'log$1');
+      var v = mathjs.evaluate(normalizedExpr, scope || {});
       if (v && typeof v === 'object' && 're' in v && 'im' in v) {
         // complex number from mathjs — only accept if essentially real
         if (Math.abs(v.im) < 1e-9) return v.re;

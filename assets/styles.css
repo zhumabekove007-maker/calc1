@@ -398,3 +398,23 @@ input, select, textarea{ font-family: var(--font-body); }
   text-align: center; padding: 3rem 1rem; color: var(--ink-soft);
 }
 .empty-state .btn{ text-decoration: none; display: inline-block; margin-top: 1rem; }
+
+/* ---------------- Harder practice page ---------------- */
+.hard-intro{ font-size: 1.05rem; color: var(--ink-soft); max-width: 70ch; margin: 0.6rem 0 1.8rem; }
+.hard-problem-block{ margin: 0 0 2.2rem; padding-bottom: 1.6rem; border-bottom: 1px dashed var(--border); }
+.hard-problem-block:last-child{ border-bottom: none; }
+.hard-problem-head{ margin-bottom: 0.5rem; }
+.hard-problem-num{
+  font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.03em; text-transform: uppercase;
+  color: var(--accent-dark); background: var(--accent-soft); border-radius: 999px; padding: 0.25rem 0.7rem;
+}
+.hard-problem-statement{ font-size: 1.05rem; margin: 0.7rem 0 1rem; }
+.figure-wrap{ max-width: 700px; margin: 0 0 1.3rem; background: var(--paper-raised); border: 1px solid var(--border); border-radius: 5px; padding: 0.8rem; }
+.figure-wrap svg{ width: 100%; height: auto; display: block; }
+.hard-part-card{ margin-left: 0; }
+.part-label-tag{ font-family: var(--font-mono); color: var(--accent); font-weight: 600; }
+.discussion-tag{
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.03em; text-transform: uppercase;
+  color: var(--mistake); background: var(--mistake-bg); border-radius: 999px; padding: 0.25rem 0.7rem;
+}
+.hard-part-discussion{ border-left: 3px solid var(--mistake); }
