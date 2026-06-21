@@ -10,7 +10,8 @@
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function () {
-    var HARD = window.HARD_CH1 || { intro: '', groups: [] };
+    var HARD = window.HARD_DATA || { intro: '', groups: [] };
+    var ID_PREFIX = window.HARD_ID_PREFIX || 'H';
     var mathjs = window.math;
     var progress = new window.Engine.ProgressStore(window.localStorage);
 
@@ -38,7 +39,7 @@
     });
 
     function globalIdFor(prob, part) {
-      return 'H' + prob.num + (part.label ? '-' + part.label : '');
+      return ID_PREFIX + prob.num + (part.label ? '-' + part.label : '');
     }
 
     // ---------------------------------------------------------
@@ -201,7 +202,7 @@
         group.problems.forEach(function (prob) {
           var block = document.createElement('div');
           block.className = 'hard-problem-block';
-          block.id = 'H' + prob.num;
+          block.id = ID_PREFIX + prob.num;
 
           var headHtml = '<div class="hard-problem-head"><span class="hard-problem-num">Problem ' + window.Render.escapeHtml(prob.num) + '</span></div>';
           if (prob.statement) headHtml += '<p class="hard-problem-statement">' + window.Render.escapeHtml(prob.statement) + '</p>';
@@ -240,7 +241,7 @@
     function renderSidebar() {
       var html = HARD.groups.map(function (group, groupIdx) {
         var items = group.problems.map(function (prob) {
-          return '<li><a href="#H' + prob.num + '" data-target="H' + prob.num + '">' +
+          return '<li><a href="#' + ID_PREFIX + prob.num + '" data-target="' + ID_PREFIX + prob.num + '">' +
             '<span class="sub-num">' + window.Render.escapeHtml(prob.num) + '</span>Problem ' + window.Render.escapeHtml(prob.num) +
             '</a></li>';
         }).join('');
